@@ -45,21 +45,21 @@ public class Library {
     }
 
     public void removeBookByTitle(String title) throws BookDoesNotExistException {
-        boolean found = false;
         Iterator<Book> iterator = books.iterator();
 
         while (iterator.hasNext()) {
             Book book = iterator.next();
+
             if (book.getTitle().equals(title)) {
                 iterator.remove();
-                found = true;
                 sortBooks();
+                return;
             }
+
         }
 
-        if (!found) {
-            throw new BookDoesNotExistException();
-        }
+        throw new BookDoesNotExistException();
+
     }
 
     public void sortBooks() {

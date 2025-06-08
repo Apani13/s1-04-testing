@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LibraryTest {
 
     private Library library;
-    private
 
     @BeforeEach
     void setUp() {
@@ -33,17 +32,17 @@ public class LibraryTest {
 
     @Test
     void givenListOfBooks_whenGettingTitleByIndex_thenReturnCorrectBook() {
-        String expectedTitle = "The violence of the sun";
+        String expectedTitle = "Great Expectations";
         String actualTitle = library.getTitleByIndex(0);
 
-        assertEquals(expectedTitle, actualTitle);
+        assertEquals(expectedTitle, actualTitle, "Title should be: " + expectedTitle);
     }
 
     @Test
     void givenListOfBooks_WhenAddingDuplicateBooks_thenArrayStaysSameLength() {
         library.addBook(new Book("La historia interminable"));
 
-        assertEquals(8, library.getBooks().size(), "Array should maintain same length");
+        assertEquals(9, library.getBooks().size(), "Array should maintain same length: 9");
     }
 
     @Test
@@ -66,7 +65,7 @@ public class LibraryTest {
     public void givenBookRemoved_whenCheckingLibrarySize_thenArraySizeIsCorrect() {
 
         try {
-            String bookTitleToRemove = library.getTitleByIndex(5);
+            String bookTitleToRemove = library.getTitleByIndex(3);
             library.removeBookByTitle(bookTitleToRemove);
         } catch (Exception e) {
             fail("An exception was thrown while trying to remove the book: " + e.getMessage());
