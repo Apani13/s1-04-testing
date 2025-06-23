@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Book {
 
+    private static final String NL = System.lineSeparator();
     private String title;
 
     public Book(String title) {
@@ -30,7 +31,7 @@ public class Book {
     @Override
     public String toString() {
         return "TITLE: "
-                + this.title + "\n";
+                + this.title + NL;
 
     }
 

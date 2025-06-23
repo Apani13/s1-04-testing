@@ -7,50 +7,52 @@ import main.level01.exercise1.model.Book;
 
 public class AppController {
 
-    public StringBuilder run() {
+   private static final String NL = System.lineSeparator();
 
-       Library library = new Library();
+   public StringBuilder run() {
 
-       StringBuilder message = new StringBuilder();
+      Library library = new Library();
 
-       message.append("LOADING BOOKS INTO LIBRARY...")
-               .append("\n");
+      StringBuilder message = new StringBuilder();
 
-       BooksData.populateArrayOfBooks(library);
+      message.append("LOADING BOOKS INTO LIBRARY...")
+              .append(NL);
 
-       message.append("ADD BOOK...")
-               .append("\n");
+      BooksData.populateArrayOfBooks(library);
 
-       library.addBook(new Book("Hamlet"));
+      message.append("ADD BOOK...")
+               .append(NL);
 
-       message.append("ADD BOOK BY INDEX...")
-               .append("\n");
+      library.addBook(new Book("Hamlet"));
 
-       library.addBookByIndex(2, new Book("La historia Interminable"));
+      message.append("ADD BOOK BY INDEX...")
+              .append(NL);
 
-       message.append("REMOVE BOOK BY TITLE...")
-               .append("\n");
+      library.addBookByIndex(2, new Book("La historia Interminable"));
 
-       try {
-           library.removeBookByTitle("La náusea");
-       } catch (BookDoesNotExistException e) {
-           message.append(e.getMessage())
-                   .append("\n");
-       }
+      message.append("REMOVE BOOK BY TITLE...")
+               .append(NL);
 
-       message.append("GET BOOK BY INDEX...")
-               .append("\n");
+      try {
+         library.removeBookByTitle("La náusea");
+      } catch (BookDoesNotExistException e) {
+         message.append(e.getMessage())
+                 .append("\n");
+      }
 
-       message.append(library.getTitleByIndex(3))
-               .append("\n");
+      message.append("GET BOOK BY INDEX...")
+              .append(NL);
 
-       message.append("GET ALL BOOKS...")
-               .append("\n");
+      message.append(library.getTitleByIndex(3))
+              .append(NL);
 
-       message.append(library.getBooks());
+      message.append("GET ALL BOOKS...")
+              .append(NL);
+
+      message.append(library.getBooks());
 
 
-       return message;
-    }
+      return message;
+   }
 
 }

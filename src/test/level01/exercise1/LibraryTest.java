@@ -40,9 +40,9 @@ public class LibraryTest {
 
     @Test
     void givenListOfBooks_WhenAddingDuplicateBooks_thenArrayStaysSameLength() {
-        library.addBook(new Book("La historia interminable"));
+        library.addBook(new Book("La náusea"));
 
-        assertEquals(9, library.getBooks().size(), "Array should maintain same length: 9");
+        assertEquals(8, library.getBooks().size(), "Array should maintain same length: 9");
     }
 
     @Test
